@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1" />
+    <meta name="description" content="This app demonstrates Blend4Web functionality and API." />
+    <title>Code Snippets | Blend4Web</title>
+    <link type='text/css' rel='stylesheet' href='code_snippets.min.css?v=16.08'/>
+    <script type='text/javascript' src='../common/b4w.simple.min.js?v=16.08'></script>
+    <script type='text/javascript' data-name='Bone API' data-scene='bone_api' src='scripts/bone_api.js'></script>
+    <script type='text/javascript' data-name='Camera Animation' data-scene='camera_animation' src='scripts/camera_animation.js'></script>
+    <script type='text/javascript' data-scene='camera_move_styles' src='scripts/camera_move_styles.js' data-name='Camera Move Styles' data-styles='true'></script>
+    <script type='text/javascript' data-name='Canvas Texture' data-scene='canvas_texture' src='scripts/canvas_texture.js'></script>
+    <script type='text/javascript' data-name='Change Image' data-scene='change_image' src='scripts/change_image.js'></script>
+    <script type='text/javascript' data-name='Custom Anchors' data-scene='custom_anchors_main' src='scripts/custom_anchors.js'></script>
+    <script type='text/javascript' data-name='Dynamic Geometry' data-scene='dynamic_geometry' src='scripts/dynamic_geometry.js'></script>
+    <script type='text/javascript' data-name='Gamepad' data-scene='gamepad' src='scripts/gamepad.js'></script>
+    <script type='text/javascript' data-name='Gyro' data-scene='gyro' src='scripts/gyro.js'></script>
+    <script type='text/javascript' data-name='Instancing' data-scene='instancing' src='scripts/instancing.js'></script>
+    <script type='text/javascript' data-name='Lines' data-scene='lines' src='scripts/lines.js'></script>
+    <script type='text/javascript' data-name='Material API' data-scene='material_api' src='scripts/material_api.js'></script>
+    <script type='text/javascript' data-scene='morphing' src='scripts/morphing.js' data-name='Morphing' data-styles='true'></script>
+    <script type='text/javascript' data-scene='multitouch' src='scripts/multitouch.js' data-name='Multitouch' data-styles='true'></script>
+    <script type='text/javascript' data-name='Ray Test' data-scene='raytest' src='scripts/raytest.js'></script>
+    <script type='text/javascript' data-name='Webcam' data-scene='webcam' src='scripts/webcam.js'></script>
+    <script type='text/javascript' src='code_snippets.min.js?v=16.08'></script>
+</head>
+<body>
+    <div id="canvas_cont" oncontextmenu="return false"></div>
+    <div id="schedule"></div>
+    <div id="interface">
+        <div class="container">
+            <a class="text" id="open_script" target="_blank" style="cursor: pointer;">View Code</a>
+        </div>
+        <div class="container">
+            <a class="text" id="auto_view" target="_self" style="cursor: pointer;">Auto View</a>
+        </div>
+    </div>
+
+    <div id="code_panel">
+        <table>
+            <tr>
+                <th>
+                    <h3>HTML</h3>
+                </th>
+                <th>
+                    <h3>JavaScript</h3>
+                    <div id="code_close"></div>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <pre><code id="code_text_html" data-language="html"></code></pre>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <pre><code id="code_text_js" data-language="javascript"></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

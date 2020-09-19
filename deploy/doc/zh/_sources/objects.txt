@@ -1,0 +1,702 @@
+
+物体
+****
+
+
+目录
+^^^^
+
+* 物体
+
+  * 类型
+
+  * 静态和动态物体
+
+  * 设置
+
+    * 物体选项卡
+
+    * 物理标签
+
+  * 设置
+
+  * 物体变换API
+
+  * Get Object API
+
+  * Object Selection
+
+  * Copying Objects (Instancing)
+
+    * Making a Simple Copy
+
+    * Making a Deep Copy
+
+    * Removing Objects
+
+  * 四元数
+
+    * 四元数例子
+
+  * Blender和Blend4Web的坐标系之间的差异
+
+  * 通过TSR矢量移动
+
+物体是在3D场景空间中放置的不同类型（网格，照相机，灯等）的组件。
+
+
+类型
+====
+
+该引擎支持以下类型的物体：
+
+   * 网格(mesh)
+
+   * camera
+
+   * lamp
+
+   * 空物体
+
+   * armature
+
+   * speaker
+
+   * 曲线
+
+   * 文本
+
+   * 融球
+
+   * 曲面
+
+During the scene export, "CURVE", "TEXT", "METABALL" and "SURFACE"
+type objects are converted into "MESH" type objects.
+
+
+静态和动态物体
+==============
+
+An object can be either static or dynamic.
+
+**Static objects** are objects that cannot be moved, animated or
+changed in any other way while running the application. For
+performance purposes, such objects can be merged together if they have
+the same material.
+
+**Dynamic objects** can be moved, animated or changed in other ways
+while running the application. They can also interact with other
+objects, including static ones. Dynamic objects are never combined
+with each other or with static objects.
+
+Only "MESH" and "EMPTY" type objects can be either static or dynamic.
+All other object types, such as "CAMERA" and "ARMATURE", are always
+dynamic.
+
+Static "MESH" objects are rendered much faster then the dynamic ones,
+so, for better performance, it is advised to keep the number of
+dynamic meshes to a minimum. Objects of any other type, both static
+and dynamic, do not significantly affect performance.
+
+The objects which have animation, physics or a parent, which is a
+dynamic object, are considered dynamic, as well as the objects
+controlled by the following logic nodes:
+
+   * "Play Animation"
+
+   * "Transform Object"
+
+   * "Move To"
+
+   * "Inherit Material"
+
+API methods that concern object movement, copying and animation (both
+object and node material) can only be applied to dynamic objects. In
+order to make the movement of the object without dynamic settings
+possible, it is necessary to activate "Force Dynamic Object" option in
+its settings.
+
+
+设置
+====
+
+以下是功能支持所有类型的物体：变换，数据引用，父物体，组成员和一套
+Blend4Web的特殊属性。
+
+
+物体选项卡
+----------
+
+[图片]
+
+
+
+*变换 > 位置*
+   位置坐标。
+
+*变换 > 旋转*
+   旋转角度。对于物体的旋转所有可用的模式可以使用（"旋转Mode"）。但是
+   ，只有 "四元（WXYZ）" 和 "XYZ Euler" 都支持 物体动画.
+
+*变换 > 缩放*
+   缩放。所有3分量（X，Y，Z）应该是相同的。缩放不支持物理物体。
+
+*关系 > 父级*
+   参照父物体。
+
+   如果父物体是一个摄像头，"Viewport Alignment" 设置将可见。
+
+   [图片]
+
+
+
+   These settings can be used to align the object to an active camera.
+   They are described in the Camera chapter.
+
+*组*
+   物体所属的物体组
+
+[图片]
+
+
+
+*细节层次 > LOD 转换速率*
+   参数用于平滑LOD物体之间的切换。它定义在该LOD物体由下一LOD物体更换前
+   仍然渲染的额外距离。分配到主要物体。测量值为在物体的边界球半径的分
+   数。
+
+*特殊效果 > 关闭雾效*
+   禁用物体的雾。
+
+*特殊效果 > 焦散*
+   该物体将渲染自附近水的焦散效果。
+
+*导出选项 > 不导出*
+   不要导出此物体。
+
+*导出选项 > 应用修改器*
+   应用导出物体的修改器。如果使用 "SKIN" 修改器，我们建议导出前应用掉
+   它，因为它会重置顶点颜色和UV层可能会导致错误。
+
+*导出选项 > 应用缩放和修改器*
+   一旦导出，应用物体的缩放和修改器。
+
+*导出选项 > 导出顶点动画*
+   导出以前创建并保存的顶点动画。只适用于 "MESH" 类型物体。
+
+*导出选项 > 导出形变键*
+   导出形变键。只适用于 "MESH" 类型物体。
+
+注解: 以下属性是相互排斥的：*应用修改器*，*应用缩放及修改器*，*导出
+  顶点动 画* 和 *导出形变键* 。
+
+*动画 > 应用默认动画*
+   传到引擎开始后播放物体的动画。
+
+*动画 > 动画混合*
+   只对骨骼物体。允许骨骼动画之间进行混合。
+
+*动画 > 行为*
+   到达最后一帧时动画的行为："完成停止"  - 停止  "完成重置"  - 停止并
+   跳到零帧，"Loop"  - 永远重复。
+
+*Rendering Properties > Hidden*
+   An object with this property enabled will be hidden on load.
+
+*渲染属性 > 不要渲染*
+   禁止物体的渲染（例如用于有用的物理物体）。
+
+*渲染属性 > 禁止视椎体剔除*
+   禁用视椎体剔除优化。
+
+*渲染属性 > 强制动态物体*
+   强制物体变成了 动态物体.
+
+*渲染属性 > 动态几何体*
+   允许通过Blend4Web API来重载物体的几何形状。
+
+*阴影 > 投射*
+   该物体将投射阴影。
+
+*阴影> 仅投射*
+   该物体将投射阴影，但仍然看不到自己。成启用 "阴影> 投射" 后可用。
+
+*阴影 > 接受*
+   该物体将接收来自其他相邻物体的阴影。
+
+*反射 > 被反射*
+   启用后物体被会在动态镜面中被反射。
+
+*反射 > 仅被反射*
+   物体被反射但仍将看不见自身。开启 "反射 > 反射性" 后可用。
+
+*反射 > 反射*
+   当启用时该物体表面反射的其他物体。
+
+*反射 > 反射面*
+   对于一个空物体定义了反射面的Name文本字段。启用 "反射 > 反射" 后可用
+   。
+
+*选择和外轮廓 > 可选择*
+   启用 物体选择 ，用鼠标或其他输入设备。
+
+*选择和外轮廓 > 启用外轮廓*
+   启用物体的 外轮廓发光  。
+
+*元标签*
+   添加物体的元标签的接口：
+
+   *元标签 > 标题*
+      物体的标题。
+
+   *元标签 > 类别*
+      物体的类别。
+
+   *元标签 > 描述*
+      物体描述。根据 "说明源"，此字段接受描述文本本身，或包含的文件的
+      名称。
+
+   *元标签 > 描述源*
+      为说明来源类型：文本或文本文件。
+
+*锚 > 启用锚*
+   This parameter enables interface for adding anchors (2D tags) to
+   objects. Available for "EMPTY" objects only. Described in the
+   corresponding section.
+
+   [图片]
+
+*风弯曲*
+   启用风弯曲程序动画。在  室外渲染 页有完整的描述.。
+
+*看板*
+   使用物体作为看板（即自动定向面对摄像机）。
+
+*看板 > 保留全局方向和缩放*
+   考虑到（世界空间）看板的物体的旋转和缩放。该物体沿Blender的Y轴查看
+   时将朝明显的被引导到相机。启用 "看板" 复选框后可用。
+
+*看板 > 看板类型*
+   看板方向模式。 "Spherical``（默认） - 物体一面始终朝向相机，不管视
+   角，``Cylindrical"  - 类似于``Spherical``，但旋转仅限于Blender的世
+   界Z轴。启用看板后变得可用。
+
+
+物理标签
+--------
+
+[图片]
+
+
+
+*检测碰撞*
+   激活物体的物理。
+
+*飘浮*
+   使物体漂浮。在 physics 一节对飘浮物体的设置进行了详细描述。
+
+*载具*
+   使用物体作为车辆的一部分。该车辆设置中详细的描述在 物理 一节。
+
+*角色*
+   启用物体的角色物理特性。角色设置详细描述在  物理 一节.。
+
+
+设置
+====
+
+Anchors can be used to attach annotations to 3D objects. The
+annotation is displayed near the object regardless of the camera
+position and even follows it throughout the animation.
+
+[图片]
+
+Annotations can be created entirely in Blender. All you need to do is
+to place an "Empty" object in the required position and enable the
+"Anchor" property. The text for the annotations can be assigned in the
+"Title" and "Description" fields on the "Meta Tags" panel.
+
+[图片]
+
+*启用锚*
+   This parameter enables the interface for adding anchors (2D tags)
+   to objects. This is available for "EMPTY" objects only.
+
+*Type*
+   *类型*
+
+   * "Annotation" - content is obtained from the meta tags assigned
+     to the object and displayed in the standard section.
+
+   * "Custom Element" - an arbitrary HTML element from the current
+     web page is used as an anchor.
+
+   * "Generic" - an anchor’s position can be detected using the
+     "anchors" API module.
+
+   Default value is "Annotation".
+
+*HTML Element ID*
+   This specifies the ID of the HTML element that will be used as the
+   anchor. This is available only if the "Type" parameter is set to
+   "Custom Element".
+
+*可见检测*
+   检测锚物体是否被其他物体重叠。打开此选项会降低性能，应该只在必要时
+   使用。
+
+*Max Width*
+   This parameter limits the expanding info window by a predefined
+   value (measured in CSS pixels). This is available only if the
+   "Type" parameter is set to "Annotation", and it is set to 250 by
+   default.
+
+
+物体变换API
+===========
+
+注解: 请确保您要变换的物体是 动态物体.
+
+使用 transform 模块的下列方法在引擎中移动物体：
+
+get_translation()
+   获得在世界空间的物体中心坐标。带一个参数的方法返回一个新向量（一个
+   非优化选项），同时用两个参数的方法需要一个额外的矢量记录结果。
+
+get_translation_rel()
+   类似于 "get_translation（）" 方法，但如果此物体有父级，得到的坐标在
+   父级的空间测量。
+
+set_translation(), set_translation_v()
+   移动物体的中心到指定的位置。第一种方法需要单独的坐标作为参数，而第
+   二个需要三元矢量（"Array" 或 "Float32Array"）。
+
+set_translation_rel(), set_translation_rel_v()
+   类似 "set_translation()" 和 "set_translation_v()"，但如果这个物体有
+   父级，设定坐标为测量父级的空间。
+
+get_rotation()
+   获取在世界空间的物体的旋转四元数。类似 "get_translation()"，调用此
+   函数也有两种选择。
+
+get_rotation_rel()
+   获取物体的在其父级空间的旋转四元。类似  "get_translation_rel()"，调
+   用此函数也有两种选择。
+
+set_rotation(), set_rotation_v()
+   设置在世界空间物体的旋转四元数。第一个功能需要单独的坐标参数，而第
+   二个需要一个四元矢量（"Array" 或 "Float32Array" ）。
+
+set_rotation_rel(), set_rotation_rel_v()
+   设置物体在其父的空间中的旋转四元数。第一个功能需要单独的坐标参数，
+   而第二个需要一个四元矢量（"Array" 或 "Float32Array"）。
+
+get_scale()
+   获取物体在世界空间的缩放。
+
+get_scale_rel()
+   获取物体在其父的空间的缩放。
+
+set_scale()
+   设置物体在世界空间的缩放。统一对应于物体的原始缩放。值小于统一值是
+   平均缩小，比统一值大 - 扩大。注意，不是所有的物体可以被缩放。特别是
+   不允许物理物体缩放。
+
+set_scale_rel()
+   设置物体在其父的空间的缩放。
+
+set_rotation_euler(), set_rotation_euler_v()
+   使用欧拉角设置物体的旋转。一个 **intrinsic** YZX 系统被使用（这意味
+   着角遵循YZX顺序和坐标原点旋转，并且每角采取了一个新的位置）。
+
+set_rotation_euler_rel(), set_rotation_euler_rel_v()
+   使用欧拉角在其父的空间中设置物体的旋转。
+
+move_local()
+   相对移动到原来的位置的对象（在局部空间）。
+
+rotate_x_local(), rotate_y_local(), rotate_z_local()
+   相对于物体原来位置的（在本地空间）旋转。
+
+
+Get Object API
+==============
+
+对物体执行任何操作，您首先需要得到它（找到到它的链接）。有几个API函数
+是做这个的。有链接的物体具有 "Object3D" 类型。
+
+get_object_by_name()
+   按名称获取物体。
+
+      // ...
+      var obj = m_scenes.get_object_by_name("Object");
+      // ...
+
+get_object_by_dupli_name()
+   通过空名称和DUPLI名称找复制物体。
+
+      // ...
+      var obj = m_scenes.get_object_by_dupli_name("Empty", "Object");
+      // ...
+
+get_object_by_dupli_name_list()
+   通过空名称和DUPLI名单（"String" 类型元素的数组）获得复制物体。
+
+      // ...
+      var obj = m_scenes.get_object_by_dupli_name_list(["Empty1", "Empty2", "Object"]);
+      // ...
+
+get_object_name_hierarchy()
+   用一个给定的物体，返回物体名层次队列（从最高层的父物体到物体本身）
+   。
+
+      // ...
+      var names = m_scenes.get_object_name_hierarchy(obj);
+      // ...
+
+check_object_by_name()
+   检查是否具有给定名称的物体在场景存在。
+
+      // ...
+      var object_exists = m_scenes.check_object_by_name("Cube");
+      // ...
+
+check_object_by_dupli_name()
+   检查复制物体是空的名字和DUPLI名字出现在场景。
+
+      // ...
+      var object_exists = m_scenes.check_object_by_dupli_name("Empty", "Cube");
+      // ...
+
+check_object_by_dupli_name_list()
+   检查复制物体是空的名字和DUPLI名单（"String" 类型元素的数组）出现在
+   场景。
+
+      // ...
+      var object_exists = m_scenes.check_object_by_dupli_name_list(["Empty1", "Empty2", "Object"]);
+      // ...
+
+get_object_name()
+   获取物体的名称。
+
+      // ...
+      var object_name = m_scenes.get_object_name(obj);
+      // ...
+
+
+Object Selection
+================
+
+In order to enable selection of a certain object, it is required to
+enable the "Selectable" checkbox on the "Selection and Outlining"
+panel.
+
+注解: Make sure that the status on the "Scene > Object Outlining"
+  panel is set to "ON" or "AUTO".
+
+Object selection is possible programmatically via API, for example, in
+the "scenes.js" module there is the "pick_object" function which
+selects an object based on canvas 2D coordinates,
+
+   // ...
+   var x = event.clientX;
+   var y = event.clientY;
+
+   var obj = m_scenes.pick_object(x, y);
+   // ...
+
+or using the Logic Editor.
+
+If the selectable object has enabled "Enable Outlining" and "Outline
+on Select" checkboxes on the "Object > Selection" and Outlining panel,
+then the "pick_object" function call will activate outline glow
+animation.
+
+注解: If the selected object is transparent ("Blend", "Add" and
+  "Sort" transparency types), outline glow will only be visible on the
+  parts that have "Alpha" value higher than 0.5.
+
+
+Copying Objects (Instancing)
+============================
+
+It is often required to copy (to make instances of) objects during
+application work.
+
+Copying objects has its limitations:
+   * only "MESH" objects can be copied
+
+   * the object should be dynamic (enable "Rendering Properties >
+     Force Dynamic Object")
+
+   * the source object should belong to the active scene
+
+
+Making a Simple Copy
+--------------------
+
+In case of simple copying the new object will share the mesh with the
+original object. Thus, if the original object’s mesh is changed, the
+copied object’s mesh will be changed too. To make simple copying
+possible, it’s enough to turn on the "Blend4Web > Force Dynamic
+Object" setting in the source object’s properties.
+
+
+Making a Deep Copy
+------------------
+
+In case of deep copying, the new object will have unique properties,
+namely it will have its own mesh. Thus, if the original object’s mesh
+is changed, the copied object’s mesh will not be changed. Also, the
+canvas textures on the copied objects are different textures and not
+one and the same like it is the case with the simple copying. To make
+deep copying possible, it is required to enable the Rendering
+Properties > Dynamic Geometry checkbox for the source object. |
+
+Copying objects in runtime can be performed with the "copy" method of
+the "objects.js" module. This method requires three arguments: the id
+of the source object, a unique name for the new object and the boolean
+value to specify the copy mode (i.e. simple or deep). By default,
+simple copying will be performed.
+
+The newly created object should be added to the scene. This can be
+performed with the "append_object" method of the "scenes.js" module.
+The new object should be passed to it as an argument.
+
+   // ...
+   var new_obj = m_objects.copy(obj, "New_name", true);
+   m_scenes.append_object(new_obj);
+   m_transform.set_translation(new_obj, 2, 0, 2);
+   // ...
+
+
+Removing Objects
+----------------
+
+To remove objects, use the "remove_object" method of the "scenes.js"
+module. Pass the object to it as an argument. Dynamic mesh- and empty-
+type objects can be removed this way.
+
+   // ...
+   m_objects.remove_object(new_obj);
+   // ...
+
+
+四元数
+======
+
+四元数是用于执行旋转的四分量矢量。四元数优于其它旋转方法，例如：
+
+   * 四元数没有多解，并且不像欧拉角依赖于的旋转顺序。
+
+   * 四元数的内存使用是更有效的（少2-4倍，取决于所使用的矩阵）。
+
+   * 在一系列旋转的情况下，比矩阵有更好的计算效率。
+
+   * Numeric stability - compensation for multiplication errors
+     arising from float number inaccuracy.
+
+   * 便捷的插值方法。
+
+四元有一些缺点：
+   * 用四元数来旋转向量比用矩阵来旋转向量要浪费计算成本。
+
+   * 很难将四元数用到非旋转变换上（例如透视或正交投影）。
+
+该引擎具有许多功能，能更方便地跟四元数工作：
+
+*quat.multiply*
+   四元数乘法。需要注意的是用B四元数左乘A四元数A * B  是用A旋转物体。
+   比如，物体已经具有一定的旋转B上，我们加了新的A旋转。
+
+*quat.setAxisAngle*
+   四元数是任意相对于任意轴（矢量）的任意角度旋转的另一种表现。从向量
+   的末端来观看时旋转的正方向定义为逆时针。例如
+   :code`quat.setAxisAngle([1, 0, 0], Math.PI/2, quat)`  用四元数对物
+   体相对于X轴旋转了90度（如果从X轴末端查看是逆时针）。
+
+*quat.slerp*
+   四元数球面插值。用于平滑物体的旋转和动画。
+
+*util.euler_to_quat, util.quat_to_euler*.
+   从欧拉角转换到和转换回欧拉角。
+
+
+四元数例子
+----------
+
+我们需要在水平面向右旋转物体60度。我们有一个在Blender里有个名为
+“Cessna” 的模型。
+
+[图片]
+
+
+
+让我们在 **aircraft** 变量保存引用：
+
+   var aircraft = m_scenes.get_object_by_name("Cessna");
+
+旋转：
+
+   * 坐标轴的方向在Blender和在引擎中是不同的。在导出时会有变换[X Y
+     Z] (Blender) -> [X -Z Y] (引擎)。因此，我们需要相对于Y轴，而不是Z
+     轴 旋转物体。
+
+   * 顺时针转动对应于旋转到右侧（即在负方向）。
+
+   * 60 度 = \pi/3 弧度.
+
+因此，我们得到：
+
+   // compose quaternion
+   var quat_60_Y_neg = m_quat.setAxisAngle([0, 1, 0], -Math.PI/3, m_quat.create());
+
+   // get old rotation
+   var quat_old = m_transform.get_rotation(aircraft);
+
+   // left multiply: quat60_Y_neg * quat_old
+   var quat_new = m_quat.multiply(quat_60_Y_neg, quat_old, m_quat.create());
+
+   // set new rotation
+   m_transform.set_rotation_v(aircraft, quat_new);
+
+优化的版本不创建新的物体：
+
+   // cache arrays as global vars
+   var AXIS_Y = new Float32Array([0, 1, 0])
+   var quat_tmp = new Float32Array(4);
+   var quat_tmp2 = new Float32Array(4);
+   ...
+   // rotate
+   m_quat.setAxisAngle(AXIS_Y, -Math.PI/3, quat_tmp);
+   m_transform.get_rotation(aircraft, quat_tmp2);
+   m_quat.multiply(quat_tmp, quat_tmp2, quat_tmp);
+   m_transform.set_rotation_v(aircraft, quat_tmp);
+
+
+Blender和Blend4Web的坐标系之间的差异
+====================================
+
+在Blender的坐标系统中的 "UP" 矢量，它指向向上，是同向的Z轴。 Blend4Web
+使用Y轴用于此目的，因为是使用OpenGL习惯。因而引擎的坐标由相对Blender的
+X轴周围旋转90°。
+
+[图片]
+
+
+
+API方法使用引擎的坐标，这样他们就跟设定Blender的参数不相同。
+
+
+通过TSR矢量移动
+===============
+
+有时用下面格式的矢量来移动物体是很方便的：
+
+   [T_x, T_y, T_z, S, R_x, R_y, R_z, R_w]
+
+在这里 T_x, T_y, T_z - 位移向量的分量，S - 比例系数， R_x, R_y, R_z,
+R_w - 四元数向量的分量。这个向量故名：TSR或TSR-8。
+
+该向量可通过 *tsr* 模块以及经由 *transform* 模块的
+*set_tsr()*/*get_tsr()*  的方法操作。

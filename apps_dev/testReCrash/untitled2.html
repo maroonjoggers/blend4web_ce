@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="b4w.min.js"></script>
+<script>
+function hello() {
+    var m_main = b4w.require("main");
+    var m_data = b4w.require("data");
+
+    var canvas_elem = document.getElementById("canvas_id");
+    m_main.init(canvas_elem);
+    m_data.load("redCube.json");
+}
+</script>
+</head>
+
+<body onload="hello()"><canvas id="canvas_id"></canvas></body>
+
+</html>

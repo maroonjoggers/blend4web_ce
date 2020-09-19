@@ -1,0 +1,267 @@
+
+存在的问题及解决方案
+********************
+
+
+目录
+^^^^
+
+* 存在的问题及解决方案
+
+  * WebGL Support
+
+  * 启动时的问题
+
+  * WebGL的无法初始化
+
+  * More In-Depth Troubleshooting
+
+  * 已知问题
+
+As WebGL is still a relatively new technology, it may not work
+perfectly with every combination of software and hardware. This
+chapter covers common problems that users of the Blend4Web engine may
+encounter and provides solutions for these problems.
+
+
+WebGL Support
+=============
+
+If you are using a desktop or laptop computer, your system must have a
+GPU that supports DirectX 9.0c and OpenGL 2.1, such as:
+
+   * Nvidia GeForce 6xxx series or higher.
+
+   * AMD/ATi Radeon R500 (X1xxx) series or higher.
+
+   * Intel GMA 950 or higher.
+
+If you are using WebGL on a mobile device, please check whether your
+device is on the compatibility list.
+
+You also need to have a web browser that supports WebGL technology.
+
+The following web browsers support WebGL:
+
+   * Google Chrome (v. 9 or higher)
+
+   * Mozilla Firefox (v 4.0 or higher)
+
+   * Safari (v. 8.0 or higher)
+
+   * Chrome for Android (v. 25 or higher)
+
+   * Internet Explorer (v. 11 or higher)
+
+   * Microsoft Edge
+
+   * Opera (v. 12 or higher)
+
+   * UC Browser (experimental)
+
+We also recommend to use the most recent version of the web browser to
+avoid compatibility problems.
+
+
+启动时的问题
+============
+
+*1. "浏览器无法初始化 WebGL" 消息显示*.
+
+[图片]
+
+请按照 WebGL的无法初始化 章节列出的说明.
+
+*2. 用户界面和背景显示但是默认场景没有渲染出来。同时 *
+http://get.webgl.org/ * 网站和其他 WebGL 应用正常工作.*
+
+   可能的原因：
+
+   * 该引擎尝试加载移动或删除的资源文件。
+
+   * 您正在使用旧版本的视频驱动程序。
+
+   * 您正在使用不完全支持WebGL的开源驱动。
+
+        对于Linux用户 - 由于目前的开源驱动程序不完整的OpenGL实现，建议
+        使用Nvidia和AMD显卡的专用的驱动程序最新版本。
+
+   * 您正在使用过时的操作系统，如Windows XP。
+
+   * Browser is not set up for loading local resources. In this
+     case, the problem can be fixed by using local web server. See the
+     Loading Local Resources section.
+
+
+WebGL的无法初始化
+=================
+
+使用最近的Chrome或Firefox浏览 http://get.webgl.org/ 页时出现的问题。我
+能做什么？
+
+1. Install the latest updates for your system (for MS Windows see
+   the guide). In case of MS Windows install the latest DirectX
+   runtime. Reboot.
+
+2. 建议及时更新显卡驱动程序。要检测你的显卡和它的供应商，请输入
+   **about:gpu** (或 **chrome://gpu**) ，在Chrome浏览器的地址栏中...
+
+[图片]
+
+
+
+或Firefox ...
+
+[图片]
+
+
+
+对于Windows，您可以运行DirectX诊断工具叫  **dxdiag**.
+
+To do it, please follow these steps:
+
+   1. Select the "Run" command from the Start menu
+
+   2. Type *dxdiag* to the "Open" field and press "Enter" to open
+      DirectX Diagnostic Tool
+
+   3. Open the "Display" panel. There you can find manufacturer,
+      model and other information regarding your video card.
+
+[图片]
+
+
+
+For MacOS X, you can check System Report.
+
+To do it, please follow these steps:
+
+   1. Select "About This Mac" from the "Apple" menu.
+
+   2. Click "System Report" button.
+
+   3. Select "Graphics/Displays" in the "Hardware" section.
+
+[图片]
+
+
+
+下载驱动程序从相应的支持中心（例如  Intel, Nvidia, AMD/ATI）。安装驱动
+程序后，重新启动系统。
+
+3. 如果上述措施没有帮助初始化渲染（或者没办法更新系统）尝试改变浏览
+   器 设置。
+
+*对于Chrome*：
+
+输入  **about:flags** （或者 **chrome://flags**）到浏览器的地址栏中，
+单击 "Enable" 下 "Override software rendering list" 选项，并重启浏览器
+。
+
+
+ [图片]
+
+
+
+*对于Firefox*：
+
+输入 **about:config**  到浏览器的地址栏，搜索 "webgl.force-enabled" 参
+数，并在其上双击从 "false" 切换到值为 "True" 。
+
+[图片]
+
+*For Safari*
+
+Select "Preferences" from Safari menu, select the "Security" tab and
+make sure that "Allow WebGL" checkbox is enabled.
+
+[图片]
+
+
+More In-Depth Troubleshooting
+=============================
+
+If nothing mentioned above helped you solve the issues you are
+experiencing, please visit the Blend4Web community forum and leave a
+message in the Bug Report thread. Our team will be sure to help you.
+
+
+已知问题
+========
+
+* 更新插件时候的问题。
+
+     It’s strongly advised to restart Blender after installing a newer
+     version of Add-on/SDK.
+
+* NVIDIA驱动程序331在Linux中可引起WebGL的错误。
+
+* 在一些平台上的改变纹理过滤。
+
+     在ipad和IE浏览器上屏蔽了一个不正确的纹理滤镜，为了让材质带alpha
+     clip类型的透明类型。
+
+* 使用Mali GPU的有些设备需要在浏览器设置手动激活的WebGL。
+
+* 对于本地开发服务器在苹果OS X和Blender2.76时，您可能需要安装
+  *Python 3.4 <https://www.python.org/downloads/release/python-343/>*.
+  这是由于在Blender https://developer.blender.org/T46623 的错误。此错
+  误已在Blender2.76b修复，所以建议更新Blender。
+
+* 使用Nouveau 驱动时骨骼动画可能工作不正确。
+
+* 透明纹理可能不能够在IE11和微软Edge Web浏览器和iPad上正确显示。
+
+     问题是关于 transparent materials.  图像错误在alpha通道值接近或等
+     于零的区域中可见。要解决这个问题，建议增加Alpha通道的值，直到错误
+     不再可见（按价值0.01增加它0.05应足以在大多数情况下）。
+
+* WebGL crashes on Linux Chromium with Nvidia GeForce 400/500 series
+  GPUs with drivers later than 355.
+
+     This issue is caused by incompatibility of Chromium sandbox and
+     NVIDIA's latest drivers. The solution is to downgrade drivers to
+     the 340xx version.
+
+* Audio issues.
+
+     Audio doesn't work in some versions of Google Chrome for the
+     "Background Music" speakers in case of HTML export. Currently,
+     speaker type is automatically changed to "Background Sound" as a
+     workaround.
+
+     There is an audio context error when running too many instances
+     (>6) of b4w engine (for example, many browser tabs or many
+     iframes on one page) in Google Chrome. The error is prevented by
+     disabling the audio for an application if the audio context
+     cannot be created for it.
+
+     Pausing the audio may not work on such mobile devices as Nexus 6
+     and Nexus 9 in Google Chrome 50-52 versions. It should work again
+     in Chrome 53. More info here:
+     https://bugs.chromium.org/p/chromium/issues/detail?id=616772.
+
+* QQ Browser doesn't support WebGL at the moment.
+
+* WebGL is unstable and sometimes crashes on Mesa 11.x drivers in
+  Linux/Chrome with Intel GPUs. Downgrading to Mesa 10.x drivers can
+  help.
+
+* Using canvas textures can lead to incorrect rendering results in
+  Firefox 46-47 versions on Linux. It should work as expected again in
+  Firefox 48. More info can be found here:
+  https://bugzilla.mozilla.org/show_bug.cgi?id=1276996.
+
+* Information about moving fingers on GearVR touch sensor in VR-mode
+  is not available.
+
+     Samsung Internet browser doesn't fire any events about moving
+     fingers on touch sensor in VR-mode.
+
+* Particles emitted by particle systems placed on inactive (hidden)
+  layers can have their positions set to zero as inactive layers are
+  not updated by Blender.
+
+     This problem can be solved by activating layers before exporting
+     a scene or by simply clicking the layers to make Blender update
+     them.

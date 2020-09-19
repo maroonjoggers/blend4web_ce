@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Blend4Web SDK</title>
+
+    <link rel="shortcut icon" sizes="128x128" href="index_assets/img/favicon_128.png" />
+    <link rel="shortcut icon" sizes="196x196" href="index_assets/img/favicon_196.png" />
+    <link rel="shortcut icon" href="index_assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="128x128" href="index_assets/img/favicon_128.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="index_assets/img/favicon_128.png" />
+    <link rel="stylesheet" type="text/css" href="index_assets/css/style.css">
+
+<script type="text/javascript">
+
+var CONTEXT_NAMES = ["webgl", "experimental-webgl"];
+
+window.addEventListener("load", function() {
+
+    var msg = document.getElementById("webgl_support_status");
+
+    if (!window.WebGLRenderingContext) {
+
+        msg.innerHTML = "not supported";
+        msg.className = "red";
+
+    } else {
+
+        var canvas = document.createElement("canvas");
+
+        var ctx = null;
+
+        for (var i = 0; i < CONTEXT_NAMES.length; i++) {
+            var name = CONTEXT_NAMES[i];
+
+            try {
+                ctx = canvas.getContext(name);
+            } catch(e) {
+                // nothing
+            }
+
+            if (ctx)
+                break;
+        }
+
+        if (ctx) {
+            msg.innerHTML = "available";
+            msg.className = "green";
+        } else {
+            msg.innerHTML = "cannot initialize context";
+            msg.className = "red";
+        }
+    }
+
+
+    var dev_server_status = document.getElementById("dev_server_status");
+    var dev_server_hint = document.getElementById("dev_server_hint");
+    check_dev_server();
+
+}, false)
+
+function check_dev_server() {
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4) 
+            display_server_status(request.status == 200);
+    };
+    request.open('GET', '/', true);
+    request.send(null);  
+}
+
+function display_server_status(result) {
+
+    if (result) {
+        dev_server_status.innerHTML = "available";
+        dev_server_status.className = "green";
+        dev_server_hint.style.display = "none";
+    } else {
+        dev_server_status.innerHTML = "not available";
+        dev_server_status.className = "red";
+        dev_server_hint.style.display = "";
+    }
+}
+
+</script>
+
+</head>
+
+<body>
+    <header>
+        <h2>Blend4Web
+            
+            <!--blend4web_pro-->CE<!--blend4web_pro-->
+            16.08
+            SDK
+        </h2>
+    </header>
+
+    <div class="row">
+        <p><b>WebGL:</b> <span id="webgl_support_status">checking...</span></p>
+        <p><b>Development Server:</b> <span id="dev_server_status">checking...</span></p>
+        <p id="dev_server_hint" style="display:none">Please make sure that you are accessing this web page using the development server (runs automatically upon Blender startup).</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        <h3>Tools</h3>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="doc">
+                <tr>
+                    <td style="width: 50%;"><a href="/project/">Project Manager</a></td>
+                    <td style="width: 50%;"><a href="/apps_dev/viewer/viewer.html">Scene Viewer</a></td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;"><a href="/apps_dev/code_snippets/code_snippets.html">Code Snippets</a></td>
+                    <td style="width: 50%;"><a href="deploy/webglreport/index.html">WebGL Report</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="4">
+                        <h3>Helpful Resources</h3>
+                    </th>
+                </tr>
+                <tr class="doc">
+                    <th></th>
+                    <th>English</th>
+                    <th>Русский</th>
+                    <th>中文</th>
+                </tr>
+            </thead>
+            <tbody class="doc">
+                <tr>
+                    <td>User Manual, HTML</td>
+                    <td><a href="deploy/doc/en/index.html">read</a></td>
+                    <td><a href="deploy/doc/ru/index.html">читать</a></td>
+                    <td><a href="deploy/doc/zh/index.html">看</a></td>
+                </tr>
+                <tr>
+                    <td>User Manual, PDF</td>
+                    <td><a href="deploy/pub/b4w_manual_en.pdf">read</a></td>
+                    <td><a href="deploy/pub/b4w_manual_ru.pdf">читать</a></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>API Reference</td>
+                    <td colspan="3"><a href="deploy/api_doc/index.html">read</a></td>
+                </tr>
+                <tr>
+                    <td>Tutorials</td>
+                    <td><a target="_blank" href="https://www.blend4web.com/en/category/8/1/">go</a></td>
+                    <td><a target="_blank" href="https://www.blend4web.com/ru/category/3/1/">перейти</a></td>
+                    <td><a target="_blank" href="https://www.blend4web.com/zh/category/14/1/">看</a></td>
+                </tr>
+                <tr>
+                    <td>FAQ</td>
+                    <td><a target="_blank" href="https://www.blend4web.com/en/faq/">go</a></td>
+                    <td><a target="_blank" href="https://www.blend4web.com/ru/faq/">перейти</a></td>
+                    <td><a target="_blank" href="https://www.blend4web.com/zh/faq/">看</a></td>
+                </tr>
+                <tr>
+                    <td>Community Support Forums</td>
+                    <td><a target="_blank" href="https://www.blend4web.com/en/forums/">go</a></td>
+                    <td><a target="_blank" href="https://www.blend4web.com/ru/forums/">перейти</a></td>
+                    <td><a target="_blank" href="https://www.blend4web.com/zh/forums/">看</a></td>
+                </tr>
+                
+        
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

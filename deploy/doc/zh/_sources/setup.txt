@@ -1,0 +1,197 @@
+
+安装和更新
+**********
+
+
+目录
+^^^^
+
+* 安装和更新
+
+  * 安装顺序
+
+    * 安装Blender
+
+    * 解压缩文件归档
+
+    * 安装Blender
+
+    * Switching to Blend4Web Mode
+
+  * 更新
+
+    * 更新 SDK
+
+    * Updating the Addon
+
+    * 导出和查看场景
+
+
+安装顺序
+========
+
+
+安装Blender
+-----------
+
+直接在 Blender 中创作 3D 场景，这是开放源码软件和免费分发软件。
+
+安装之前，请下载并安装兼容的Blender版本，根据此 表.
+
+应使用当前的稳定版本的Blender。它可以从 官方网站 下载 。
+
+[图片]
+
+
+解压缩文件归档
+--------------
+
+Stable versions of the distribution are available as an archive
+("blend4web_ce_YY_MM.zip" -- free SDK, "blend4web_pro_YY_MM.zip" --
+commercial SDK). Simply unpack this archive somewhere.
+
+
+安装Blender
+-----------
+
+1. 打开Blender。
+
+2. 打开用户首选项面板  "File > User Preferences...".
+
+3. 打开 "File" 选项卡。
+
+4. 在 "Scripts" 中设置 SDK 目录的路径。
+
+5. 单击 "Save User Settings" 按钮。
+
+      [图片]
+
+6. 重新启动Blender。
+
+7. 打开用户首选项面板  "File > User Preferences...".
+
+8. 打开 "File" 选项卡。
+
+9. Enable the *Blend4Web* add-on.
+
+10. 单击 "Save User Settings" 按钮。
+
+       [图片]
+
+*验证是否工作:*
+
+在 "File > Export" 菜单 "Blend4Web (.json)" 和 "Blend4Web (.html)" 选
+项应该出现。
+
+注解: 如果您打算使用只用法线编辑器，你可以考虑安装  Blend4Web 插件
+  而不是 SDK。插件只能导出场景到  HTML格式 和有限功能 (例如，它没有
+  项目管理 ，示例场景，用户手册，等等)，但它仍然拥有一切让你可以创建一
+  个简单的 应用程序。It can be installed the same way as any other
+  Blender addon.
+
+
+
+
+Switching to Blend4Web Mode
+---------------------------
+
+为了查看该引擎设置，从顶部面板菜单中选择Blend4Web：
+
+[图片]
+
+
+更新
+====
+
+
+更新 SDK
+--------
+
+在更新之前，我们建议您使用 project export 工具备份的所有开发中的项目.
+
+To update the SDK, follow these steps:
+
+1. Download the new version of the SDK.
+
+2. 打开Blender。
+
+3. Open the "User Preferences" window.
+
+4. Open the "Add-ons" panel.
+
+5. Disable "Blend4Web" Add-on.
+
+6. Unpack the new version of the SDK from the archive.
+
+      注解: There are two methods to do this.Firstly, you can
+        completely delete the SDK folder and, after that, extract the
+        new version folder, as if you were installing the SDK for the
+        first time. 第二，你可以简单地使用新的覆盖过时的 SDK 文件。此
+        方法被认为是 不太 "纯净"，但在大多数情况下，它不应导致任何问题
+        。
+
+7. Open the "File" panel in the "User Preferences" window.
+
+8. Set the path to the SDK folder in the "Scripts" field.
+
+9. Press the "Save User Settings" button.
+
+10. 重新启动Blender。
+
+11. Open the "User Preferences" window once again.
+
+12. Open the "Add-ons" panel.
+
+13. Enable "Blend4Web" add-on.
+
+14. Press the "Save User Settings" button once again.
+
+15. Check if everything works correctly.
+
+完成更新后，您可以使用 项目导入 工具导入所有已保存的项目。
+
+
+Updating the Addon
+------------------
+
+If you are only using the Blend4Web add-on, follow this instruction
+instead.
+
+Before installing a new version of the add-on, you may firstly remove
+the existing one. To do this, unfold the information tab of the
+Blend4Web addon and press the "Remove" button. Removing the old
+version is not required before installing a new one, but doing so
+makes sure there won't be any coflicts.
+
+[图片]
+
+1. Download the archive that contains the new version of the add-
+   on, and save it to any place on your hard drive.
+
+2. 打开Blender。
+
+3. Open the "User Preferences" window.
+
+4. Switch to the "Add-ons" panel.
+
+5. Install the new version of the add-on from the archive you
+   downloaded.
+
+6. Press the "Save User Settings button".
+
+7. 重新启动Blender。
+
+Everything should be working now.
+
+
+导出和查看场景
+--------------
+
+创建的场景可以以 HTML 格式导出。使用 "File > Export > Blend4Web
+(.html)" 或者 "File > Export > Blend4Web (.json)" 菜单选项，然后选择导
+出文件的路径。场景导出完全描述在 自己章节. 可以用任何支持 WebGL的浏览
+器打开生成的 HTML 文件。
+
+参见: WebGL的浏览器支持
+
+

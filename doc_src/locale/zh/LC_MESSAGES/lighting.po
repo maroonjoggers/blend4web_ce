@@ -1,0 +1,798 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2014-2016, Triumph
+# This file is distributed under the same license as the Blend4Web. User
+# Manual package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blend4Web. User Manual v16.03\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-28 14:01+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: ../lighting.rst:8
+msgid "Lighting, Shadows and Background"
+msgstr ""
+
+#: ../lighting.rst
+msgid "Table of Contents"
+msgstr ""
+
+#: ../lighting.rst:17
+msgid "Shading Types"
+msgstr ""
+
+#: ../lighting.rst:19
+msgid ""
+"Lighting (shading) depends on the direction of normal vectors. The "
+"standard Blender's shading types are supported: ``Shading: Flat`` (face "
+"normals are used), ``Shading: Smooth`` (interpolated vertex normals are "
+"used) and their combinations."
+msgstr ""
+
+#: ../lighting.rst:29
+msgid ""
+"If the required effect is impossible to achieve with the standard tools, "
+"you can use the :ref:`normals editor <normals_editor>`."
+msgstr ""
+
+#: ../lighting.rst:31
+msgid ""
+"The result of applying different shading types and using the normals "
+"editor:"
+msgstr ""
+
+#: ../lighting.rst:38
+msgid "Flat Shading"
+msgstr ""
+
+#: ../lighting.rst:39
+msgid "Smooth Shading"
+msgstr ""
+
+#: ../lighting.rst:40
+msgid "Smooth Shading + bevel"
+msgstr ""
+
+#: ../lighting.rst:41
+msgid "Smooth Shading + bevel + editing normals"
+msgstr ""
+
+#: ../lighting.rst:46
+msgid "Lighting with Light Sources"
+msgstr ""
+
+#: ../lighting.rst:48
+msgid ""
+"A scene can have multiple (but not less than one) light sources of "
+"different types."
+msgstr ""
+
+#: ../lighting.rst:52
+msgid "Light source types"
+msgstr ""
+
+#: ../lighting.rst:54
+msgid "The following light source types are supported:"
+msgstr ""
+
+#: ../lighting.rst:57
+msgid "*Point*"
+msgstr ""
+
+#: ../lighting.rst:57
+msgid ""
+"Light propagates from one point uniformly to all directions with gradual "
+"attenuation."
+msgstr ""
+
+#: ../lighting.rst:60
+msgid "*Sun*"
+msgstr ""
+
+#: ../lighting.rst:60
+msgid ""
+"Light propagates from an infinite plane in one direction without "
+"attenuation."
+msgstr ""
+
+#: ../lighting.rst:63
+msgid "*Spot*"
+msgstr ""
+
+#: ../lighting.rst:63
+msgid ""
+"Light propagates from one point within the angular limit, with gradual "
+"attenuation."
+msgstr ""
+
+#: ../lighting.rst:67
+msgid "*Hemi*"
+msgstr ""
+
+#: ../lighting.rst:66
+msgid ""
+"Hemispherical. Light propagates from an infinite hemisphere without "
+"attenuation."
+msgstr ""
+
+#: ../lighting.rst:70
+msgid "Light source setup"
+msgstr ""
+
+#: ../lighting.rst:72
+msgid "Performed in the ``Object Data`` tab when a lamp object is selected."
+msgstr ""
+
+#: ../lighting.rst:81 ../lighting.rst:209
+msgid "*Color*"
+msgstr ""
+
+#: ../lighting.rst:81
+msgid "Light color. The default value is (1.0, 1.0, 1.0) (i.e. white)."
+msgstr ""
+
+#: ../lighting.rst:84
+msgid "*Energy*"
+msgstr ""
+
+#: ../lighting.rst:84
+msgid "Radiation intensity. The default value is 1.0."
+msgstr ""
+
+#: ../lighting.rst:87
+msgid "*Falloff*"
+msgstr ""
+
+#: ../lighting.rst:87
+msgid ""
+"Attenuation type. The value is exported but the engine always uses "
+"``Inverse Square``. It is applicable to the ``Point`` and ``Spot`` light "
+"source types. The default value is ``Inverse Square``."
+msgstr ""
+
+#: ../lighting.rst:90
+msgid "*Distance*"
+msgstr ""
+
+#: ../lighting.rst:90
+msgid ""
+"Attenuation parameter. It is applicable to the ``Point`` and ``Spot`` "
+"light source types. The default value is 25.0."
+msgstr ""
+
+#: ../lighting.rst:93
+msgid "*Specular*"
+msgstr ""
+
+#: ../lighting.rst:93
+msgid "Create specular highlights. Enabled by default."
+msgstr ""
+
+#: ../lighting.rst:96
+msgid "*Diffuse*"
+msgstr ""
+
+#: ../lighting.rst:96
+msgid "Do diffuse shading. Enabled by default."
+msgstr ""
+
+#: ../lighting.rst:99
+msgid "*Spot Shape > Size*"
+msgstr ""
+
+#: ../lighting.rst:99
+msgid ""
+"Cone angle in degrees. It is applicable to the ``Spot`` light source "
+"type. The default value is 45º."
+msgstr ""
+
+#: ../lighting.rst:102
+msgid "*Spot Shape > Blend*"
+msgstr ""
+
+#: ../lighting.rst:102
+msgid ""
+"Parameter for blurring light spot edges. It is applicable to the ``Spot``"
+" light source type. The default value is 0.15."
+msgstr ""
+
+#: ../lighting.rst:105
+msgid "*Dynamic Intensity*"
+msgstr ""
+
+#: ../lighting.rst:105
+msgid ""
+"Use this light source for calculating the time of day. Applicable only to"
+" the ``Sun`` light source type. Disabled by default."
+msgstr ""
+
+#: ../lighting.rst:108
+msgid "*Shadow > Shadow*"
+msgstr ""
+
+#: ../lighting.rst:108
+msgid ""
+"Use this light source for shadow calculation. Should be used when "
+"multiple light sources are present. Disabled by default."
+msgstr ""
+
+#: ../lighting.rst:111
+msgid "*Shadow > Clip Start*"
+msgstr ""
+
+#: ../lighting.rst:111
+msgid ""
+"This parameter specifies a distance from the light source, below which "
+"objects do not generate shadows. Default value is 1.001."
+msgstr ""
+
+#: ../lighting.rst:115
+msgid "*Shadow > Clip End*"
+msgstr ""
+
+#: ../lighting.rst:114
+msgid ""
+"This parameter specifies a distance from the light source, beyond which "
+"objects do not generate shadows. Default value is 30.002."
+msgstr ""
+
+#: ../lighting.rst:120
+msgid "Environment Lighting (Ambient)"
+msgstr ""
+
+#: ../lighting.rst:122
+msgid "The engine supports 3 methods of the environment lighting simulation."
+msgstr ""
+
+#: ../lighting.rst:124
+msgid "Flat white lighting."
+msgstr ""
+
+#: ../lighting.rst:125
+msgid ""
+"Hemispherical lighting model in which horizon and zenith colors should be"
+" specified. As a result objects are filled with a gradient between these "
+"two colors depending on the direction of normals."
+msgstr ""
+
+#: ../lighting.rst:126
+msgid ""
+"Lighting using an :ref:`environment map <environment_map>` - so called "
+"image-based lighting."
+msgstr ""
+
+#: ../lighting.rst:129 ../lighting.rst:185
+msgid "Activation"
+msgstr ""
+
+#: ../lighting.rst:131 ../lighting.rst:156
+msgid "Enable the ``Environment Lighting`` checkbox on the ``World`` tab."
+msgstr ""
+
+#: ../lighting.rst:139 ../lighting.rst:202
+msgid "Setup"
+msgstr ""
+
+#: ../lighting.rst:142
+msgid "*World > Environment Lighting > Energy*"
+msgstr ""
+
+#: ../lighting.rst:142
+msgid "Environment lighting intensity. The default value is 1.0."
+msgstr ""
+
+#: ../lighting.rst:145
+msgid "*World > Environment Lighting > Environment Color*"
+msgstr ""
+
+#: ../lighting.rst:145
+msgid ""
+"Selection of the environment lighting simulation method: ``White`` - flat"
+" white lighting, ``Sky Color`` - hemispherical model, ``Sky Texture`` - "
+"lighting using an :ref:`environment map <environment_map>`. The default "
+"value is ``White``."
+msgstr ""
+
+#: ../lighting.rst:149
+msgid "*World > Horizon Color* and *World > Zenith Color*"
+msgstr ""
+
+#: ../lighting.rst:148
+msgid ""
+"If the hemispherical model (``Sky Color``) is selected the horizon and "
+"zenith colors can be specified by means of the ``World > Horizon Color`` "
+"and ``World > Zenith Color`` color pickers. It is recommended to activate"
+" the ``World > Blend Sky`` option for better color selection."
+msgstr ""
+
+#: ../lighting.rst:152
+msgid "Environment map method"
+msgstr ""
+
+#: ../lighting.rst:154
+msgid "To use an environment map for environment lighting:"
+msgstr ""
+
+#: ../lighting.rst:157
+msgid "Select ``Environment Lighting > Sky Texture``."
+msgstr ""
+
+#: ../lighting.rst:158
+msgid "Go from the ``World`` tab to the ``Texture`` tab."
+msgstr ""
+
+#: ../lighting.rst:159
+msgid ""
+"Create an :ref:`environment map <environment_map>`, load the "
+"corresponding image to it."
+msgstr ""
+
+#: ../lighting.rst:160
+msgid ""
+"For the environment map select ``ENVIRONMENT_LIGHTING`` or ``BOTH`` as "
+"the ``Sky Texture Usage`` value on the ``Export Options`` panel (the "
+"``BOTH`` option also enables using this texture as a :ref:`skydome "
+"texture <skydome_texture>`)."
+msgstr ""
+
+#: ../lighting.rst:172
+msgid "Shadows"
+msgstr ""
+
+#: ../lighting.rst:174
+msgid ""
+"Shadows are exceptionally important for rendering the final picture. They"
+" provide the viewer not only with information about the objects' outline "
+"but also about their height and relative position, light source position "
+"and so on."
+msgstr ""
+
+#: ../lighting.rst:176
+msgid ""
+"Blend4Web implements the following shadow rendering techniques: cascaded "
+"shadow maps (CSM) and softened shadows (PCF)."
+msgstr ""
+
+#: ../lighting.rst:178
+msgid ""
+"Up to 4 (or 3 if SSAO is enabled) light sources can generate shadows "
+"simultaneously. If *Shadow* parameter is enabled for more than 4 light "
+"sources, shadows will still be generated only from 4 of them."
+msgstr ""
+
+#: ../lighting.rst:187
+msgid ""
+"Enable the ``Shadows: Cast`` checkbox under the ``Object`` tab for the "
+"objects which **cast** shadows."
+msgstr ""
+
+#: ../lighting.rst:188
+msgid ""
+"Enable the ``Shadows: Receive`` checkbox under the ``Object`` tab for the"
+" objects which **receive** shadows."
+msgstr ""
+
+#: ../lighting.rst:189
+msgid ""
+"Make sure that the ``Shadows`` option in the ``Render`` tab has the value"
+" ``AUTO`` or ``ON``."
+msgstr ""
+
+#: ../lighting.rst:193
+msgid ""
+"Objects, which have :ref:`transparent materials with a gradient "
+"<alpha_blend>`, do not cast shadows."
+msgstr ""
+
+#: ../lighting.rst:205
+msgid "*Direction*"
+msgstr ""
+
+#: ../lighting.rst:205
+msgid ""
+"If there are multiple light sources, it is recommended to specify the "
+"exact light source which is used for shadow calculations, by enabling the"
+" ``Shadow > Shadow`` checkbox under the ``Object Data`` tab for the "
+"selected lamp object."
+msgstr ""
+
+#: ../lighting.rst:208
+msgid ""
+"The shadow color is determined by the :ref:`environment lighting "
+"<environment_lighting>` settings."
+msgstr ""
+
+#: ../lighting.rst:211
+msgid ""
+"The following additional settings are located on the ``Shadows`` panel of"
+" the ``Render`` tab:"
+msgstr ""
+
+#: ../lighting.rst:218
+msgid "*Resolution*"
+msgstr ""
+
+#: ../lighting.rst:218
+msgid "Shadow map resolution. The default value is 2048x2048px."
+msgstr ""
+
+#: ../lighting.rst:221
+msgid "*Self-Shadow Polygon Offset*"
+msgstr ""
+
+#: ../lighting.rst:221
+msgid ""
+"Coefficient for shifting polygons relative to light source orientation. "
+"The default value is 1."
+msgstr ""
+
+#: ../lighting.rst:224
+msgid "*Self-Shadow Normal Offset*"
+msgstr ""
+
+#: ../lighting.rst:224
+msgid ""
+"Coefficient for shifting polygons along their normals. The default value "
+"is 0.010."
+msgstr ""
+
+#: ../lighting.rst:226
+msgid ""
+"The last two parameters can be used to reduce self-shadowing artifacts. "
+"These artifacts appear for the objects that cast and receive shadows at "
+"the same time. The ``Self-Shadow Polygon Offset`` parameter is more "
+"effective for fighting against artifacts in inner areas of polygons while"
+" ``Self-Shadow Normal Offset`` is better for the boundary areas. Both "
+"these parameters lead to shadow distortions so we recommend to set them "
+"as low as possible."
+msgstr ""
+
+#: ../lighting.rst:233
+msgid ""
+"Shadows from ``Point`` light sources are generated the same way as from "
+"``Spot`` light sources and are projected only in one direction specified "
+"by the source's ``Rotation`` parameter."
+msgstr ""
+
+#: ../lighting.rst:238
+msgid "*Enable CSM*"
+msgstr ""
+
+#: ../lighting.rst:238
+msgid ""
+"Activates the using of cascaded shadows model; reveals additional "
+"options. Disabled by default. Won't work if the ``Shadow`` setting is "
+"enabled for more than one light source. ``Point`` and ``Spot`` type light"
+" sources support only one shadow cascade."
+msgstr ""
+
+#: ../lighting.rst:240
+msgid ""
+"This option allows to choose between the following shadow generation "
+"models:"
+msgstr ""
+
+#: ../lighting.rst:242
+msgid ""
+"Generic model which uses a single optimized shadow map for the whole "
+"scene (``Enable CSM`` is turned off)."
+msgstr ""
+
+#: ../lighting.rst:243
+msgid "Shadow cascades (``Enable CSM`` is turned on)."
+msgstr ""
+
+#: ../lighting.rst:246
+msgid "*Blur Radius*"
+msgstr ""
+
+#: ../lighting.rst:246
+msgid ""
+"Blur ratio for setting up softened shadows. The default value is 3. Zero "
+"value produces hard shadows."
+msgstr ""
+
+#: ../lighting.rst:254
+msgid ""
+"Softened shadows can improve visual quality and realism. They hide the "
+"jugged edges inevitable when using image-based techniques, that is "
+"especially noticeable for low-resolution shadow maps. The using of "
+"softened shadows often allows to decrease resolution without substantial "
+"quality loss."
+msgstr ""
+
+#: ../lighting.rst:258
+msgid "Generic shadows"
+msgstr ""
+
+#: ../lighting.rst:260
+msgid ""
+"This option suits well smaller scenes with a limited number of objects. "
+"Thanks to optimizations applied for such scenes, one can achieve better "
+"shadow quality as compared with cascaded shadows. Also, this option is "
+"simpler and faster for setting up, while using a single shadow map "
+"greatly improves the performance."
+msgstr ""
+
+#: ../lighting.rst:264
+msgid "Shadow cascades"
+msgstr ""
+
+#: ../lighting.rst:268
+msgid ""
+"These settings are supported only for ``Sun`` light sources. Cascades are"
+" turned off for other types of light sources."
+msgstr ""
+
+#: ../lighting.rst:270
+msgid ""
+"In order to provide acceptable shadow quality and to cover considerable "
+"space at the same time it is required to use multiple stages for shadow "
+"generation (cascades). Thus, the best quality cascades are situated near "
+"the observer while the worst quality cascades are in the distance. This "
+"option suits well middle-to-large scenes, e.g. game levels."
+msgstr ""
+
+#: ../lighting.rst:272
+msgid "When enabled the following extended settings are revealed:"
+msgstr ""
+
+#: ../lighting.rst:280
+msgid "*CSM Number*"
+msgstr ""
+
+#: ../lighting.rst:280
+msgid ""
+"Number of shadow cascades. From 1 to 4 cascades are supported. The "
+"default value is 1."
+msgstr ""
+
+#: ../lighting.rst:283
+msgid "*CSM First Cascade Border*"
+msgstr ""
+
+#: ../lighting.rst:283
+msgid "First cascade size. The default value is 10.0."
+msgstr ""
+
+#: ../lighting.rst:286
+msgid "*CSM Last Cascade Border*"
+msgstr ""
+
+#: ../lighting.rst:286
+msgid "Last cascade size. The default value is 100.0."
+msgstr ""
+
+#: ../lighting.rst:288
+msgid ""
+"The sizes of the intermediate cascades are interpolated between the two "
+"above-mentioned parameters."
+msgstr ""
+
+#: ../lighting.rst:292
+msgid ""
+"When setting up the shadows keep in mind that the bigger the cascade size"
+" is, the worse and less detailed are the shadows inside it. On the other "
+"hand, reducing the ``CSM First Cascade Border`` parameter makes the "
+"subsequent less detailed cascades closer to the camera and thus more "
+"noticeable. Reducing the ``CSM Last Cascade Border`` parameter forces "
+"shadows to disappear at more close distance from the camera. However, "
+"when softened shadows are used the overall quality will improve thanks to"
+" blurring at the edges."
+msgstr ""
+
+#: ../lighting.rst:301
+msgid "*CSM First Cascade Blur Radius*"
+msgstr ""
+
+#: ../lighting.rst:301
+msgid ""
+"Blur ratio for the first cascade. The default value is 3. Zero value "
+"produces hard shadows."
+msgstr ""
+
+#: ../lighting.rst:304
+msgid "*CSM Last Cascade Blur Radius*"
+msgstr ""
+
+#: ../lighting.rst:304
+msgid ""
+"Blur ratio for the last cascade. The default value is 1.5. Zero value "
+"produces hard shadows."
+msgstr ""
+
+#: ../lighting.rst:306
+msgid ""
+"The blur radii of the intermediate cascades are interpolated between the "
+"two above-mentioned parameters."
+msgstr ""
+
+#: ../lighting.rst:310
+msgid ""
+"We recommend to start setting up the softened shadows with the first "
+"cascade (using ``CSM First Cascade Blur Radius``) and then proceed to "
+"other cascades (using ``CSM Last Cascade Blur Radius``). Often the last "
+"cascade may need less blurring than the first one. This may be needed to "
+"prevent the shadows on the last cascade being too faded due to low "
+"resolution. This also reduces undesirable self-shadowing artifacts."
+msgstr ""
+
+#: ../lighting.rst:314
+msgid "*Fade-out Last Cascade*"
+msgstr ""
+
+#: ../lighting.rst:314
+msgid "Smooth dying-out of the last cascade. Enabled by default."
+msgstr ""
+
+#: ../lighting.rst:317
+msgid "*Blend Between Cascades*"
+msgstr ""
+
+#: ../lighting.rst:317
+msgid "Smoothing the boundaries between the cascades. Enabled by default."
+msgstr ""
+
+#: ../lighting.rst:328
+msgid "Background"
+msgstr ""
+
+#: ../lighting.rst:330
+msgid "You can change the background in the following ways:"
+msgstr ""
+
+#: ../lighting.rst:332
+msgid ""
+"Enable ``World > Render Sky``, then set the ``Horizon Color`` and the "
+"``Zenith Color`` under Blender's ``World`` tab."
+msgstr ""
+
+#: ../lighting.rst:334
+msgid ""
+"Place the whole scene inside a model (e.g. a cube or a sphere) with its "
+"normals directed inside, with a material and an optional texture."
+msgstr ""
+
+#: ../lighting.rst:336
+msgid ""
+"Place a surface with a material and an optional texture in front of the "
+"camera. Parent it to the camera. If required, tweak the distance to this "
+"surface, starting and ending clipping planes for the camera."
+msgstr ""
+
+#: ../lighting.rst:342
+msgid "Use a :ref:`skydome <skydome_texture>`."
+msgstr ""
+
+#: ../lighting.rst:344
+msgid "Set up the procedurally generated :ref:`atmosphere <atmosphere>`."
+msgstr ""
+
+#: ../lighting.rst:346
+msgid ""
+"Set the engine's ``background_color`` parameter with the ``config.set()``"
+" method. Please note, that ``World > Render Sky`` under Blender's "
+"``World`` tab must be disabled. This value is used as argument for the "
+"WebGL ``clearColor()`` method. For correct results, it's recommended to "
+"turn the WebGL context transparency off (the ``alpha`` parameter). Such "
+"the configuration is used by default in the engine's standard web player."
+msgstr ""
+
+#: ../lighting.rst:359
+msgid ""
+"You can use any HTML content behind the *canvas* element, to which the "
+"rendering is performed, as a background. To do this, activate the WebGL "
+"context transparency (the ``alpha`` parameter). Please note, that ``World"
+"  > Render Sky`` under Blender's ``World`` tab must be disabled. For "
+"correct results, it's recommended to set absolutely transparent black "
+"background color. Such the configuration is used by default in the "
+":ref:`scene viewer <viewer>` of Blend4Web SDK."
+msgstr ""
+
+#: ../lighting.rst:372
+msgid ":ref:`alpha_compositing`"
+msgstr ""
+
+#: ../lighting.rst:4
+msgid "lighting"
+msgstr ""
+
+#: ../lighting.rst:14
+msgid "shading"
+msgstr ""
+
+#: ../lighting.rst:14
+msgid "types"
+msgstr ""
+
+#: ../lighting.rst:43
+msgid "light sources"
+msgstr ""
+
+#: ../lighting.rst:325
+msgid "background"
+msgstr ""
+
+#~ msgid ""
+#~ msgstr ""
+
+#~ msgid "*Dynamic Intesity*"
+#~ msgstr ""
+
+#~ msgid "Normal Editor"
+#~ msgstr ""
+
+#~ msgid "Normal editor workflow example:"
+#~ msgstr ""
+
+#~ msgid "Main features of the normal editor:"
+#~ msgstr ""
+
+#~ msgid "all changes are being saved automatically;"
+#~ msgstr ""
+
+#~ msgid "edited normals are being exported automatically."
+#~ msgstr ""
+
+#~ msgid "Interface of the Vertex Normal Editor"
+#~ msgstr ""
+
+#~ msgid "Activate"
+#~ msgstr ""
+
+#~ msgid "*Description*"
+#~ msgstr ""
+
+#~ msgid "The new ``Activate`` button turns on vertex normal editing mode."
+#~ msgstr ""
+
+#~ msgid "*Usage*"
+#~ msgstr ""
+
+#~ msgid "Show Normals"
+#~ msgstr ""
+
+#~ msgid "Rotation"
+#~ msgstr ""
+
+#~ msgid "Using these instruments you can change direction of the normals."
+#~ msgstr ""
+
+#~ msgid "Split Normals"
+#~ msgstr ""
+
+#~ msgid "Usage"
+#~ msgstr ""
+
+#~ msgid "Average Split"
+#~ msgstr ""
+
+#~ msgid "Restore"
+#~ msgstr ""
+
+#~ msgid "Tree, Foliage and Face"
+#~ msgstr ""
+
+#~ msgid "Copy/Paste"
+#~ msgstr ""
+
+#~ msgid "Copies the normal direction from one vertex to another."
+#~ msgstr ""
+
+#~ msgid "Copy From Mesh"
+#~ msgstr ""
+
+#~ msgid "normals"
+#~ msgstr ""
+
+#~ msgid "editor"
+#~ msgstr ""
+

@@ -1,0 +1,246 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2014-2016, Triumph
+# This file is distributed under the same license as the Blend4Web. User
+# Manual package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blend4Web. User Manual v16.03\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-12 16:22+0300\n"
+"PO-Revision-Date: 2016-04-12 15:24+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: ../meshes.rst:6
+msgid "Meshes"
+msgstr "网格"
+
+#: ../meshes.rst
+msgid "Table of Content"
+msgstr "目录"
+
+#: ../meshes.rst:12
+msgid ""
+"Meshes are a subclass of :ref:`objects <objects>`. Meshes are different "
+"from objects of the other types in a sence that they have geometric "
+"structure that is visible in the scene. All objects user can see in a "
+"scene are either meshes or convertet to meshes on export (like the "
+"``CURVE``, ``TEXT``, ``METABALL`` and ``SURFACE`` type objects)."
+msgstr ""
+
+#: ../meshes.rst:14
+msgid ""
+":ref:`Blend4Web addon <addon>` has several tools for mesh editing, "
+"including the :ref:`normal editor <normals_editor>`."
+msgstr ""
+
+#: ../meshes.rst:16
+msgid ""
+"This chapter provides an overview of the ``MESH`` type object parameters "
+"and settings, as well as the API functions to work with them."
+msgstr ""
+
+#: ../meshes.rst:21
+#, fuzzy
+msgid "Static and Dynamic Meshes"
+msgstr "静态和动态物体"
+
+#: ../meshes.rst:23
+#, fuzzy
+msgid "All ``MESH`` objects can be divided into static and dynamic."
+msgstr "所有``MESH`` 物体可分为静态和动态物体。"
+
+#: ../meshes.rst:25
+#, fuzzy
+msgid ""
+"**Static meshes** are meshes that can be merged together if they have the"
+" same material."
+msgstr "**静态物体** 是物体，具有相同的材质的网格可以合并在一起。"
+
+#: ../meshes.rst:27
+#, fuzzy
+msgid "**Dynamic meshes** are meshes that cannot be combined with each other."
+msgstr "**动态物体** 是物体，网格不可以互相合并。"
+
+#: ../meshes.rst:29
+msgid ""
+"Merging of static meshes - so called batching - is performed "
+"automatically when the scene is loaded in order to optimize the number of"
+" draw calls. The conversion is performed even if there is just one object"
+" in the scene. The center of the resulting mesh is located in the origin."
+msgstr ""
+
+#: ../meshes.rst:31
+#, fuzzy
+msgid ""
+"Meshes that have animation, physics or a parent, which is a dynamic "
+"object, are considered dynamic."
+msgstr "具有动画，物理或父级关系的物体，是一个动态物体，都被认为是动态的。"
+
+#: ../meshes.rst:36
+msgid "Settings"
+msgstr "设置"
+
+#: ../meshes.rst:38
+msgid ""
+"Meshes have all settings of the :ref:`objects <object_settings>` and "
+"several additional settings."
+msgstr "网格含有 :ref:`物体 <object_settings>` 所有的设置和一些额外的设置。"
+
+#: ../meshes.rst:43
+msgid "Override Bounding Volumes"
+msgstr "覆盖包围体积"
+
+#: ../meshes.rst:45
+msgid ""
+"This section is used to override bounding volumes. Such volumes are used "
+"to check object’s visibility, to handle collisions and physics "
+"interaction. By editing them, you can achieve various effects."
+msgstr "这部分是用来覆盖包围盒。这样体积盒用于检查物体的可见性，来处理碰撞和物理交互。通过编辑它们，可以实现各种效果。"
+
+#: ../meshes.rst:51
+msgid ""
+"The ``Override Bounding Volumes`` section can be found on the "
+"``Blend4Web`` panel (beside the :ref:`normals editor <normals_editor>`.)."
+msgstr ""
+"该 ``覆盖包围体积`` 部分可以在 ``Blend4Web`` 面板上找到（在 :ref:`法线编辑器 <normals_editor>` "
+"旁边）。"
+
+#: ../meshes.rst:53
+msgid "*Show Boundings*"
+msgstr "*显示包围*"
+
+#: ../meshes.rst:60
+msgid ""
+"Show the bounding volumes in the Blender viewport. This option works only"
+" if the ``Override Mesh Boundings`` parameter is enabled. The volume can "
+"be rendered as a rectangular cuboid or as a combination of circles or "
+"ellipses. More than one method of rendering can be active at the same "
+"time (even all three methods can be enabled simultaneously)."
+msgstr ""
+"显示在Blender视口中的包围盒。只有当 ``覆盖网格包围`` "
+"参数开启，启用该选项。包围盒可以呈现为长方体或为圆形或椭圆的组合。多个渲染方式可以在同一时间是启用（甚至所有三种方法可以同时启用）。"
+
+#: ../meshes.rst:63
+msgid ""
+"The selected rendering method does not affect the bounding volume shape, "
+"only the way it is represented in the viewport."
+msgstr "所选渲染方法不会影响包围盒的形状，只是影响它在视口中展示的方式。"
+
+#: ../meshes.rst:67
+msgid "*Override Mesh Boundings*"
+msgstr "*覆盖网格包围*"
+
+#: ../meshes.rst:74
+msgid ""
+"This button enables the override of the basic mesh boundings. The "
+"bounding volume always has the shape of a rectangular cuboid with a "
+"center in the object’s pivot point."
+msgstr "此按钮可以使基本网格包围覆盖。包围盒总是一个长方体并以物体的枢轴点为中心。"
+
+#: ../meshes.rst:77
+msgid "*MinX and  MaxX*"
+msgstr ""
+
+#: ../meshes.rst:77
+msgid "The volume’s X dimensions. By default, *MinX* = -1, *MaxX* = 1"
+msgstr "包围盒的X尺寸。默认情况下， *MinX* = -1, *MaxX* = 1"
+
+#: ../meshes.rst:80
+msgid "*MinY and  MaxY*"
+msgstr ""
+
+#: ../meshes.rst:80
+msgid "The volume’s Y dimensions. By default, *MinY* = -1, *MaxY* = 1."
+msgstr "包围盒的Y尺寸。缺省情况下，*MinY* = -1, *MaxY* = 1."
+
+#: ../meshes.rst:83
+msgid "*MinZ and  MaxZ*"
+msgstr ""
+
+#: ../meshes.rst:83
+msgid "The volume’s Z dimensions. By default, *MinZ* = -1, *MaxZ* = 1"
+msgstr "包围盒的z方向。缺省情况下，*MinZ* = -1, *MaxZ* = 1"
+
+#: ../meshes.rst:88
+msgid "Morphing"
+msgstr "变形"
+
+#: ../meshes.rst:90
+msgid ""
+"Morph targets can be added using Blender’s standard ``Mesh > Shape keys``"
+" interface."
+msgstr "变形目标可以用Blender的标准 ``网格 > 形变键`` 界面进行添加。"
+
+#: ../meshes.rst:97
+msgid "The engine supports all shape key options under the “Relative” type."
+msgstr "该引擎支持所有 “相对” 类型下的形变键选项。"
+
+#: ../meshes.rst:99
+msgid ""
+"To set a shape key value, use the ``apply_shape_key`` method of the "
+"``geometry.js`` module."
+msgstr "要设置一个形变键值，使用 ``geometry.js`` 模块的 ``apply_shape_key`` 方法。"
+
+#: ../meshes.rst:103
+msgid "The object must have ``Export Shape Keys`` parameter enabled."
+msgstr "该物体必须具有 ``导出形变键`` 参数启用。"
+
+#~ msgid "*MinX и MaxX*"
+#~ msgstr "*MinX и MaxX*"
+
+#~ msgid "*MinY и MaxY*"
+#~ msgstr "*MinY и MaxY*"
+
+#~ msgid "*MinZ и MaxZ*"
+#~ msgstr "*MinZ и MaxZ*"
+
+#~ msgid ""
+#~ msgstr ""
+
+#~ msgid "Copying Objects (Instancing)"
+#~ msgstr "复制物体（实例化）"
+
+#~ msgid "Copying objects has its limitations:"
+#~ msgstr "复制物体有其局限性："
+
+#~ msgid "only ``MESH`` objects can be copied"
+#~ msgstr "只有 ``MESH`` 物体可以被复制"
+
+#~ msgid "the source object should belong to the active scene"
+#~ msgstr "源物体应该属于主控场景"
+
+#~ msgid "Making a Simple Copy"
+#~ msgstr "制作一个简单的复制"
+
+#~ msgid "Making a Deep Copy"
+#~ msgstr "制作深复制"
+
+#~ msgid "Removing Objects"
+#~ msgstr "删除物体"
+
+#~ msgid "Object Selection"
+#~ msgstr "物体选择"
+
+#~ msgid "or using the :ref:`NLA Script <nla_select_play>`."
+#~ msgstr "或使用 :ref:`NLA 脚本 <nla_select_play>`."
+
+#~ msgid ""
+#~ "Meshes are a subclass of objects. "
+#~ "Meshes are different from objects of "
+#~ "the other types in a sence that"
+#~ " they have geometric structure that "
+#~ "is visible in the scene. All "
+#~ "objects user can see in a scene"
+#~ " are either meshes or convertet to"
+#~ " meshes on export (like the "
+#~ "``CURVE``, ``TEXT``, ``METABALL`` and "
+#~ "``SURFACE`` type objects)."
+#~ msgstr ""
+

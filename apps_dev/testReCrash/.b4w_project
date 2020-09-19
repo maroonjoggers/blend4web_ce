@@ -1,0 +1,30 @@
+[info]
+author = 
+name = testReCrash
+title = ReCrash
+icon = 
+
+[paths]
+assets_dirs = deploy/assets/testReCrash;
+blend_dirs = blender/testReCrash;
+blender_exec = blender
+build_dir = deploy/apps/testReCrash
+deploy_dir = 
+
+[compile]
+apps = 
+css_ignore = 
+engine_type = external
+ignore = 
+js_ignore = 
+optimization = simple
+use_physics = 
+use_smaa_textures = 
+version = 
+
+[deploy]
+assets_path_dest = assets
+assets_path_prefix = assets
+ignore = 
+override = 
+

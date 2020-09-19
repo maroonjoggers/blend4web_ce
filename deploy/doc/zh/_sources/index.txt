@@ -1,0 +1,515 @@
+
+目录
+****
+
+* 概述
+
+  * 什么是 Blend4Web
+
+  * "关于引擎"
+
+  * 图形引擎，游戏引擎
+
+  * 什么是WebGL
+
+  * WebGL的浏览器支持
+
+  * WebGL的优势
+
+  * 什么是Blender
+
+  * 三维建模
+
+  * 浏览器技术
+
+  * 交互式图形
+
+  * 显卡和驱动程序
+
+* Engine Features
+
+* 安装和更新
+
+  * 安装顺序
+
+  * 更新
+
+* 工作流程
+
+  * 创作场景
+
+  * 导出场景
+
+  * 在浏览器显示场景
+
+  * 应用程序开发
+
+* 项目管理器
+
+  * 项目管理器
+
+  * 项目创建向导
+
+  * Creating a Web Player Application
+
+  * 项目信息
+
+  * 项目导入
+
+  * 项目导出
+
+* 场景预览器
+
+  * 导航
+
+  * 侧面板
+
+  * 指标
+
+* 网络播放器
+
+  * 用法
+
+  * 导航
+
+  * 控制面板
+
+  * 属性
+
+  * 场景名称为标题
+
+  * 场景错误
+
+* Add-on
+
+  * Local Development Server
+
+  * Running Viewer and Demos
+
+  * 输出格式
+
+  * 导出选项
+
+  * 初始化错误
+
+  * 兼容性错误
+
+  * 关键导出错误
+
+  * 非致命导出的错误
+
+  * 其他消息
+
+  * 插件翻译
+
+* 场景设置
+
+  * 渲染面板
+
+  * 场景面板
+
+  * 世界环境面板
+
+* 物体
+
+  * 类型
+
+  * 静态和动态物体
+
+  * 设置
+
+  * 设置
+
+  * 物体变换API
+
+  * Get Object API
+
+  * Object Selection
+
+  * Copying Objects (Instancing)
+
+  * 四元数
+
+  * Blender和Blend4Web的坐标系之间的差异
+
+  * 通过TSR矢量移动
+
+* 网格
+
+  * Static and Dynamic Meshes
+
+  * 设置
+
+  * 变形
+
+* Normal Editor
+
+  * Main Features of the Normal Editor
+
+  * Interface
+
+  * Activate
+
+  * Show Normals
+
+  * Rotation
+
+  * Absolute and Offset Modes
+
+  * Split Normals
+
+  * Average
+
+  * Restore
+
+  * Tree, Foliage and Face
+
+  * Copy/Paste
+
+  * Copy From Mesh
+
+* Camera
+
+  * Move Styles and General Settings
+
+  * Limiting the Camera Movement
+
+  * Viewport Alignment
+
+  * Camera Controls API
+
+* 材质
+
+  * 灯光参数
+
+  * 透明
+
+  * 反射
+
+  * 渲染属性
+
+  * 视图属性
+
+  * 引擎特定参数
+
+  * 光晕材质
+
+* Material Library
+
+  * Library Structure
+
+  * Material Structure
+
+  * Adding Material to a Scene
+
+* 节点材质
+
+  * 标准节点
+
+  * Engine-Specific Nodes
+
+* Logic Editor
+
+  * Basics
+
+  * Control Flow
+
+  * Animation
+
+  * Camera
+
+  * Object
+
+  * Operations
+
+  * Sound
+
+  * Network
+
+  * Debug
+
+  * Deprecated
+
+  * Layout
+
+  * Debugging
+
+* Lighting, Shadows and Background
+
+  * Shading Types
+
+  * Lighting with Light Sources
+
+  * Environment Lighting (Ambient)
+
+  * Shadows
+
+  * Background
+
+* 后期处理效果
+
+  * 运动模糊
+
+  * 景深
+
+  * 屏幕空间环境光遮蔽
+
+  * 上帝光芒
+
+  * 泛光效果
+
+  * 物体外轮廓
+
+  * 晕光
+
+  * 抗锯齿
+
+* 立体渲染
+
+  * 激活
+
+  * 附加设置
+
+  * HMD Settings
+
+* 纹理
+
+  * 纹理类型
+
+  * 通用设置
+
+  * 漫射贴图
+
+  * 高光贴图
+
+  * 法线贴图
+
+  * 高度图。视差贴图
+
+  * 蒙版贴图
+
+  * 视频贴图
+
+  * 环境贴图
+
+  * 镜面贴图
+
+  * 天穹
+
+  * 特殊的纹理类型
+
+* Particle System. Fluids
+
+  * Usage
+
+  * Setup
+
+  * Textures in Particle Systems
+
+* Particle System. Instancing
+
+  * Particle System Setup
+
+  * Grass
+
+  * Tree Leaves
+
+* 动画
+
+  * 动画控制
+
+  * 物体动画
+
+  * 蒙皮和骨骼动画
+
+  * 顶点动画
+
+  * 默认动画
+
+  * 非线性动画
+
+  * 音频源参数
+
+  * 值和 RGB 节点的动画
+
+* Outdoor Effects
+
+  * Water
+
+  * Atmosphere
+
+  * Lens Flare
+
+  * Wind
+
+* 色彩管理
+
+  * Gamma概述
+
+  * 人类视觉和显示器
+
+  * 伽玛公式
+
+  * 伽马在节点材质中
+
+  * alpha合成
+
+  * 色彩校正
+
+* 音频
+
+  * 音源设置
+
+  * Audio Mixer
+
+  * 处理和解码
+
+* Physics
+
+  * Preparing for Use
+
+  * Static Physics Type
+
+  * Dynamic Physics Type
+
+  * Constraints
+
+  * Wheeled Vehicles
+
+  * Floating Objects
+
+  * Floating Vehicles aka Watercrafts
+
+  * Characters
+
+  * Use in Applications
+
+* For Application Developers
+
+  * Project Management
+
+  * Advanced Project Management
+
+  * Application Programming
+
+  * Resource Conversion
+
+  * Code Examples
+
+  * Event-Driven Model
+
+  * SDK File Structure
+
+  * Loading Local Resources
+
+  * Quality Profiles
+
+  * Non-FullScreen Web Apps
+
+* For Engine Developers
+
+  * Coding Style
+
+  * Building the Engine
+
+  * Building the Add-on
+
+  * Dependencies
+
+  * Naming Functions and Variables
+
+  * Debugging
+
+  * Shader Compilation
+
+  * Updating Add-on Translations
+
+* 团队工作。使用 Git
+
+  * 概述
+
+  * 典型的工作流
+
+  * 单独设置
+
+  * 检查状态
+
+  * 在提交前
+
+  * 准备提交
+
+  * 提交
+
+  * 存储库之间同步
+
+  * 解决冲突
+
+  * 标签
+
+  * 其他有用的命令
+
+* 存在的问题及解决方案
+
+  * WebGL Support
+
+  * 启动时的问题
+
+  * WebGL的无法初始化
+
+  * More In-Depth Troubleshooting
+
+  * 已知问题
+
+* Release Notes
+
+  * v16.08
+
+  * v16.07
+
+  * v16.06
+
+  * v16.05
+
+  * v16.04
+
+  * v16.03
+
+  * v16.02
+
+  * v16.01
+
+  * v15.12
+
+  * v15.11
+
+  * v15.10
+
+  * v15.09
+
+  * v15.08
+
+  * v15.07
+
+  * v15.06
+
+  * v15.05
+
+  * v15.04
+
+  * v15.03
+
+  * v15.02
+
+  * v15.01
+
+  * v14.12
+
+  * v14.11
+
+  * v14.10
+
+  * v14.09
+
+* 索引
+
+* 搜索页面
